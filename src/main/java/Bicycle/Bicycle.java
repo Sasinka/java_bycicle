@@ -15,10 +15,8 @@ public class Bicycle {
         this.gear = gear;
     }
 
-
-
     public void printDescription(){
-        System.out.println("Bike is in gear "+getCadence()+" with a cadence of "+getGear()+" and traveling at a speed of "+getSpeed());
+        System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed());
     }
 
     public int getSpeed() {
