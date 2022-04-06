@@ -1,5 +1,9 @@
 package Bicycle;
 
+import BicycleService.RoadBikeService;
+import BicycleService.MountainService;
+import BicycleService.BasicService;
+
 public class MountainBike extends Bicycle{
     private String suspension;
 
@@ -17,6 +21,10 @@ public class MountainBike extends Bicycle{
         System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed()+" it's susspention is "+getSuspension());
     }
 
+    public void visit(MountainService bs){
+        bs.accept(this);
+    }
+
     public String getSuspension() {
         return suspension;
     }
@@ -26,4 +34,6 @@ public class MountainBike extends Bicycle{
             this.suspension = suspension;
         }
     }
+
+
 }

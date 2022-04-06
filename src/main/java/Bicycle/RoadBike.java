@@ -1,5 +1,7 @@
 package Bicycle;
 
+import BicycleService.RoadBikeService;
+
 public class RoadBike extends Bicycle{
     private int tireWidth;
 
@@ -15,6 +17,10 @@ public class RoadBike extends Bicycle{
     @Override
     public void printDescription(){
         System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed()+" tire width is "+getTireWidth()+" mm.");
+    }
+
+    public void visit(RoadBikeService bs){
+        bs.accept(this);
     }
 
     public int getTireWidth() {

@@ -6,6 +6,7 @@ import BicycleService.BasicService;
 import BicycleService.MountainService;
 import BicycleService.RoadBikeService;
 
+import Car.Car;
 
 public class TestBikes {
     public static void main(String[] args){
@@ -37,6 +38,22 @@ public class TestBikes {
         service2.accept(bike01);
         service2.accept(bike02);
         service2.accept(bike03);
+
+        System.out.println("Single dispatch:");
+        Car car1 = new Car();
+        car1.accept(bike01);
+        car1.accept(bike02);
+        car1.accept(bike03);
+        System.out.println(car1); //???
+/*
+        System.out.println("Double dispatch:");
+        Car car2 = new Car();
+        bike01.visit(car2);
+        bike02.visit(car2);
+        bike03.visit(car2);
+        System.out.println(car2);
+*/
+
     }
 
 }

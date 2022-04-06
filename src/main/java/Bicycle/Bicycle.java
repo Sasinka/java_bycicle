@@ -1,5 +1,7 @@
 package Bicycle;
 
+import BicycleService.BasicService;
+
 public class Bicycle {
     protected int cadence;
     protected int speed;
@@ -19,6 +21,10 @@ public class Bicycle {
         System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed());
     }
 
+    public void visit(BasicService bs){
+        bs.accept(this);
+    }
+
     public int getSpeed() {
         return speed;
     }
@@ -34,6 +40,7 @@ public class Bicycle {
     public void setCadence(int cadence) {
         this.cadence = cadence;
     }
+
     public int getGear() {
         return gear;
     }
