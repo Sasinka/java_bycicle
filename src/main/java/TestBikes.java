@@ -8,6 +8,8 @@ import BicycleService.RoadBikeService;
 
 import Car.Car;
 
+import java.security.Provider;
+
 public class TestBikes {
     public static void main(String[] args){
         //proč tohle nefungovalo?
@@ -27,7 +29,7 @@ public class TestBikes {
         MountainService service1 = new MountainService();
         RoadBikeService service2 = new RoadBikeService();
 
-        service.accept(bike01);
+      /*  service.accept(bike01);
         service.accept(bike02);
         service.accept(bike03);
 
@@ -38,6 +40,18 @@ public class TestBikes {
         service2.accept(bike01);
         service2.accept(bike02);
         service2.accept(bike03);
+*/
+        bike01.visit(service);
+        bike01.visit(service1);
+        bike01.visit(service2);
+
+        bike02.visit(service);
+        bike02.visit(service1);
+        bike02.visit(service2);
+
+        bike03.visit(service);
+        bike03.visit(service1);
+        bike03.visit(service2);
 
         System.out.println("Single dispatch:");
         Car car1 = new Car();
@@ -48,9 +62,9 @@ public class TestBikes {
 /*
         System.out.println("Double dispatch:");
         Car car2 = new Car();
-        bike01.visit(car2);
-        bike02.visit(car2);
-        bike03.visit(car2);
+        bike01.Interface.visit(car2);
+        bike02.Interface.visit(car2);
+        bike03.Interface.visit(car2);
         System.out.println(car2);
 */
 

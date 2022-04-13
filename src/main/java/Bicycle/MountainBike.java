@@ -4,7 +4,7 @@ import BicycleService.RoadBikeService;
 import BicycleService.MountainService;
 import BicycleService.BasicService;
 
-public class MountainBike extends Bicycle{
+public class MountainBike extends Bicycle {
     private String suspension;
 
     public MountainBike(String suspension) {
@@ -21,8 +21,19 @@ public class MountainBike extends Bicycle{
         System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed()+" it's susspention is "+getSuspension());
     }
 
+    public void visit(BasicService bs){
+        bs.accept(this);
+        System.out.println(this.cadence+ " visited Bike Service");
+    }
+
     public void visit(MountainService bs){
         bs.accept(this);
+        System.out.println(this.cadence+ " visited Mountain Service");
+    }
+
+    public void visit(RoadBikeService bs){
+        bs.accept(this);
+        System.out.println(this.cadence+ " visited Road Service");
     }
 
     public String getSuspension() {

@@ -1,15 +1,15 @@
 package Bicycle;
 
 import BicycleService.BasicService;
+import BicycleService.MountainService;
+import BicycleService.RoadBikeService;
 
-public class Bicycle {
+import Interface.visit;
+
+public class Bicycle implements visit {
     protected int cadence;
     protected int speed;
     protected int gear;
-
-    public Bicycle() {
-
-    }
 
     public Bicycle(int cadence, int speed, int gear) {
         this.cadence = cadence;
@@ -21,8 +21,25 @@ public class Bicycle {
         System.out.println("Bike is in gear "+getGear()+" with a cadence of "+getCadence()+" and traveling at a speed of "+getSpeed());
     }
 
+    @Override
+    public void visit(){
+
+    }
+    
+    @Override
     public void visit(BasicService bs){
         bs.accept(this);
+        System.out.println(this.cadence+ " visited Bike Service");
+    }
+    @Override
+    public void visit(MountainService bs){
+        bs.accept(this);
+        System.out.println(this.cadence+ " visited Mountain Service");
+    }
+    @Override
+    public void visit(RoadBikeService bs){
+        bs.accept(this);
+        System.out.println(this.cadence+ " visited Road Service");
     }
 
     public int getSpeed() {
@@ -48,4 +65,10 @@ public class Bicycle {
     public void setGear(int gear) {
         this.gear = gear;
     }
+
+
+
+
+
+
 }
